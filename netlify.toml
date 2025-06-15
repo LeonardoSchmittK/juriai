@@ -1,6 +1,6 @@
 [build]
-  command = "expo export:web"
-  publish = "web-build"
+  command = "expo export"
+  publish = "dist"
   functions = "netlify/functions"
 
 [[redirects]]
