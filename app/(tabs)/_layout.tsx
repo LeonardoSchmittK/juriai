@@ -7,9 +7,14 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import * as SystemUI from 'expo-system-ui';
+import { useTheme } from 'react-native-paper';
+
 
 export default function TabLayout() {
+  const { colors } = useTheme();
   const colorScheme = useColorScheme();
+  SystemUI.setBackgroundColorAsync('#ffffff'); // or any hex color
 
   return (
     <Tabs
@@ -29,6 +34,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          tabBarStyle: { display: 'none' },
           title: 'Home',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
